@@ -2,6 +2,7 @@ package com.example.hxrlab.worldgallery;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -27,25 +28,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Dialog dialogBox;
     TextView titleTv, messageTv;
     ImageView initialPopupImg;
-  //  Button searchLocation, detectLocation;
+    Button searchLocation, detectLocation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Mapbox.getInstance(this, "pk.eyJ1Ijoicm9zYXNhbGRhbmEiLCJhIjoiY2ptcnhwbWhxMDExMzNwczhrMjg4eGluYSJ9.hWimVvC5OKLT5xcIk2m_tA");
         setContentView(R.layout.activity_main);
-
         // initialization
         mapView = (MapView) findViewById(R.id.mapView);
-    //    searchLocation = (Button) findViewById(R.id.searchLocation);
-    //    detectLocation = (Button) findViewById(R.id.detectLocation);
         mapView.onCreate(savedInstanceState);
         dialogBox = new Dialog(this);
-
-        // buttons listening
-    //    searchLocation.setOnClickListener(this);
-    //    detectLocation.setOnClickListener(this);
-
         initialMessage();
 
     }
@@ -53,6 +46,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void initialMessage(){
         dialogBox.setContentView(R.layout.inital_popup);
         initialPopupImg = (ImageView) dialogBox.findViewById(R.id.closeCorrectImg);
+        searchLocation = (Button) dialogBox.findViewById(R.id.searchLocation);
+        detectLocation = (Button) dialogBox.findViewById(R.id.detectLocation);
         titleTv = (TextView) dialogBox.findViewById(R.id.titleTv);
         messageTv = (TextView) dialogBox.findViewById(R.id.messageTv);
 
@@ -62,35 +57,30 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 dialogBox.dismiss();
             }
         });
-        /**
-        detectLocation.setOnClickListener(new View.OnClickListener(){
+       detectLocation.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                //
+                openSceneTwoActivity();
             }
         });
         searchLocation.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
                 //
+                System.out.println("hey");
             }
-        }); **/
+        });
         dialogBox.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         dialogBox.show();
     }
 
+    public void openSceneTwoActivity(){
+        Intent intent = new Intent(this, Activity2.class);
+        startActivity(intent);
+    }
+
     @Override
     public void onClick(View v) {
-    /**
-        switch(v.getId()) {
-            // clicked on Michael
-            case R.id.detectLocation:
-                // go into new activity
-                break;
-            case R.id.searchLocation:
-                // this is just minimizing the current pop up message box
-                break;
-        } **/
     }
 
     /** MAPBOX API METHODS **/
