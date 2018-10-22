@@ -11,18 +11,28 @@
     android:weightSum="10"
     tools:context=".Activity2">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_weight="9"
+    <TextureView
+        android:id="@+id/textureView"
         android:layout_width="match_parent"
-        android:layout_height="fill_parent" />
+        android:layout_height="wrap_content"
+        android:layout_weight="9" />
 
     <Button
         android:id="@+id/btnCamera"
-        android:layout_weight="1"
-        android:layout_width="match_parent"
+        android:layout_width="188dp"
         android:layout_height="wrap_content"
+        android:layout_weight="1"
         android:background="@android:color/holo_purple"
-        android:textColor="@android:color/white"
-        android:text="Open Camera"/>
+        android:text="Take Picture"
+        android:textColor="@android:color/white" />
+
+    <Button
+        android:id="@+id/Continue"
+        android:layout_width="188dp"
+        android:layout_height="38dp"
+        android:layout_weight="9"
+        android:background="@android:color/holo_purple"
+        android:text="Continue"
+        android:textAlignment="center"
+        android:textColor="@android:color/background_light" />
 </LinearLayout>
