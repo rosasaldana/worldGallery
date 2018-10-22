@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">WorldGallery</string>
+    <string name="initial_popup_title_default"> Welcome to WorldGallery </string>
+    <string name="initial_popup_text_default"> Would you like us to detect your location or do you want to search your location? </string>
+
+    <string name="location_popup_title_default"> Location Detected! </string>
+    <string name="location_popup_text_default"> We detected that this is your current location: </string>
+
+</resources>
